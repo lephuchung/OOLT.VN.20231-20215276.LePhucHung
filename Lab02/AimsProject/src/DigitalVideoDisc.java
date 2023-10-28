@@ -7,7 +7,9 @@ public class DigitalVideoDisc {
 	private int length;
 	private float cost;
 	
-	private static int nbDigitalVideoDiscs = 0;
+	// Dung de cai id
+	
+	private static int nbDigitalVideoDiscs=0;
     private int id;
 	
 	// Constructor
