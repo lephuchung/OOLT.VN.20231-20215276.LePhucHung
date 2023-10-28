@@ -43,4 +43,24 @@ public class Cart {
 		}
 		return (float) Math.round(sum * 100) / 100;
 	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+		int j = 0;
+			for(int i = 0; i < 20; i++)
+			{
+				if (this.qtyOrdered<20) {
+					if(itemOrdered[i] == null) {
+						itemOrdered[i] = dvdList[j];
+						j++;
+						this.qtyOrdered++;
+					}
+				}
+			}
+		System.out.println("The list of disc has been added");
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        addDigitalVideoDisc(dvd1);
+        addDigitalVideoDisc(dvd2);
+	}    
 }
