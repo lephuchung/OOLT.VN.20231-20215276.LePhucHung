@@ -1,35 +1,11 @@
-package AimsProject.src.hust.soict.hedspi.aims.book;
+package AimsProject.src.hust.soict.hedspi.aims.media;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+public class Book extends Media {
 
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
     private List<String> authors = new ArrayList<String>();
-
-    public Book() {
-    }
-
-    public Book(String title) {
-        this.title = title;
-    }
-
-    public Book(String title, String category, float cost) {
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-    }
-
-    public Book(int id,String title, String category, float cost) {
-        this.id = id;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-    }
 
     public void addAuthor(String authorName) {
         for(String author: authors) {

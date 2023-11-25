@@ -1,7 +1,7 @@
 package AimsProject.src.hust.soict.hedspi.test.store;
 
 import AimsProject.src.hust.soict.hedspi.aims.store.Store;
-import AimsProject.src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import AimsProject.src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
 public class StoreTest {
 
     public static void main(String[] args) {
