@@ -1,16 +1,11 @@
-package AimsProject.src.hust.soict.hedspi.aims.disc;
-public class DigitalVideoDisc {
+package AimsProject.src.hust.soict.hedspi.aims.media;
+public class DigitalVideoDisc extends Media {
 
-    private String title;
-    private String category;
+
     private String director;
     private int length;
-    private float cost;
-
-    // Dung de cai id
 
     private static int nbDigitalVideoDiscs=0;
-    private int id;
 
     // Constructor
 
@@ -51,23 +46,7 @@ public class DigitalVideoDisc {
         this.id = nbDigitalVideoDiscs;
     }
 
-    // Getters and Setters
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    // Getters and Setter
 
     public String getDirector() {
         return director;
@@ -83,14 +62,6 @@ public class DigitalVideoDisc {
 
     public void setLength(int length) {
         this.length = length;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
     }
 
 }
