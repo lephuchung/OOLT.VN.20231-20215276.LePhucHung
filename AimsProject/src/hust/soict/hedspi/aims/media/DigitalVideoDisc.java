@@ -1,9 +1,5 @@
 package AimsProject.src.hust.soict.hedspi.aims.media;
-public class DigitalVideoDisc extends Media {
-
-
-    private String director;
-    private int length;
+public class DigitalVideoDisc extends Disc {
 
     private static int nbDigitalVideoDiscs=0;
 
