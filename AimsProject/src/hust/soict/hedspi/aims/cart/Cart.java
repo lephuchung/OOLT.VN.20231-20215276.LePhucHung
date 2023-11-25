@@ -1,4 +1,6 @@
-package AimsProject.src;
+package AimsProject.src.hust.soict.hedspi.aims.cart;
+
+import AimsProject.src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
