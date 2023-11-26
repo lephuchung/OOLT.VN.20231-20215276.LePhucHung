@@ -2,6 +2,8 @@ package AimsProject.src.hust.soict.hedspi.aims.cart;
 
 import java.util.ArrayList;
 
+import AimsProject.src.hust.soict.hedspi.aims.media.CompactDisc;
+import AimsProject.src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
 
 public class Cart {
@@ -40,7 +42,14 @@ public class Cart {
     public void print() {
         System.out.println("***********************CART***********************");
         for (int i = 0; i < this.itemsOrdered.size(); i++ ) {
-            System.out.println(i+1 + ". " + itemsOrdered.get(i));
+            if (itemsOrdered.get(i) instanceof DigitalVideoDisc){
+                System.out.println(i+1 + ". " + "DVD" + ". " + itemsOrdered.get(i).getTitle() +" - "+ itemsOrdered.get(i).getCategory() +" - "+ ((DigitalVideoDisc) itemsOrdered.get(i)).getDirector() +" - "+ ((DigitalVideoDisc) itemsOrdered.get(i)).getLength()+": "+itemsOrdered.get(i).getCost()+"$");
+            } else if (itemsOrdered.get(i) instanceof CompactDisc) {
+                System.out.println(i+1 + ". " + "CD" + ". " + itemsOrdered.get(i).getTitle() +" - "+ itemsOrdered.get(i).getCategory() +" - "+ ((CompactDisc) itemsOrdered.get(i)).getDirector() +" - "+ ((CompactDisc) itemsOrdered.get(i)).getArtist() +" - "+ ((CompactDisc) itemsOrdered.get(i)).getLength()+": "+itemsOrdered.get(i).getCost()+"$");
+            } else {
+                System.out.println(i+1 + ". " + "Book" + ". " + itemsOrdered.get(i).getTitle() +" - "+ itemsOrdered.get(i).getCategory() +": "+itemsOrdered.get(i).getCost()+"$");
+            }
+
         }
         System.out.println("Total cost: " + totalCost() + "$");
         System.out.println("**************************************************");

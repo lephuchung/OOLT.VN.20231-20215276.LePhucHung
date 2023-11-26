@@ -2,6 +2,7 @@ package AimsProject.src.hust.soict.hedspi.aims.media;
 public class DigitalVideoDisc extends Disc implements Playable {
 
     private static int nbDigitalVideoDiscs=0;
+    private String director;
 
     // Constructor
 
