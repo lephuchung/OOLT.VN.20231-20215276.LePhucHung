@@ -1,0 +1,35 @@
+1. Write a toString() method for the DigitalVideoDisc class. What should be the return type of
+this method?
+-> String
+2. Which classes are aggregates of other classes? Checking all constructors of whole classes if they
+initialize for their parts?
+-> The child class will contain the parent class, methods and properties in the parent class will be initialized in the child class
+3. What class should implement the Comparable interface?
+-> The classes MediaComparatorByCostTitle and MediaComparatorByTitleCost should implement the comparable interface
+4. In those classes, how should you implement the compareTo()method to reflect the ordering that we want?
+-> We should compare in order of title to price or vice versa
+5. Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+-> Of course
+6. Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+-> add class:
+package AimsProject.src.hust.soict.hedspi.aims.media;
+
+import java.util.Comparator;
+
+public class MediaComparator3 implements Comparator<Media> {
+    public MediaComparatorByTitleCost() {
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public int compare(Media md1, Media md2) {
+        if((md1.getTitle().equals(md2.getTitle())) && (md1.getLength() != md2.getLength())) {
+            return int.compare(md1.getLength(),md2.getLength());
+        }
+	else if ((md1.getTitle().equals(md2.getTitle())) && (md1.getLength() == md2.getLength())){
+	    return float.compare(md1.getCost(),md2.getCost());	
+	}
+	else return md1.getTitle().compareTo(md2.getTitle());
+    }
+}
+
