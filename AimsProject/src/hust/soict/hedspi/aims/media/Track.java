@@ -12,17 +12,6 @@ public class Track implements Playable{
         this.setTitle(title);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Track) {
-            Track track = (Track) obj;
-            if ((title == track.getTitle()) && (length == track.getLength())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -40,5 +29,18 @@ public class Track implements Playable{
         System.out.println("Playing track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof Track) {
+            Track track = (Track) obj;
+            if ((title == track.getTitle()) && (length == track.getLength())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

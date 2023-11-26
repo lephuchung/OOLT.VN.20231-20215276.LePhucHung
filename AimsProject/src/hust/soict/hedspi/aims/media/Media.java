@@ -28,16 +28,6 @@ public class Media {
         this.setCost(cost);
     }
 
-
-    @Override
-    public boolean equals(Object object) {
-        if(object instanceof Media) {
-            Media media = (Media) object;
-            return media.getTitle().equals(this.getTitle());
-        }
-        return false;
-    }
-
     public int getId() {
         return id;
     }
@@ -61,6 +51,16 @@ public class Media {
     }
     public void setCost(float cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if(object instanceof Media) {
+            Media media = (Media) object;
+            return media.getTitle().equals(this.getTitle());
+        }
+        return false;
     }
 
 }
