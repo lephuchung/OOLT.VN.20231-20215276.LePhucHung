@@ -1,0 +1,24 @@
+1. Advantages of polymorphism:
+- Flexibility: Polymorphism makes code more flexible by allowing an object to change its behavior at execution time.
+- Code Reusability: Polymorphism helps in code reuse, as you can use methods implemented in subclasses without having to rewrite the code.
+- Source code is easier to read and understand: When polymorphism is used, the source code is often easier to read and understand because it more closely reflects the actual model
+2. How is Inheritance useful to achieve Polymorphism in Java?
+- In Java, the synergy between inheritance and polymorphism plays a pivotal role in object-oriented programming. Inheritance allows subclasses to inherit attributes and behaviors from their superclasses, promoting code reusability and creating a hierarchical structure. The key to achieving polymorphism lies in method overriding, a feature enabled by inheritance. Subclasses can provide specific implementations for methods defined in their superclass, allowing for diverse behaviors within a unified interface. Polymorphism, in turn, allows a reference variable of a superclass type to be dynamically bound to objects of its subclasses, enabling flexibility in code design. This polymorphic behavior enhances adaptability and readability, as the same method invocation can produce different outcomes based on the actual type of the object. This dynamic binding at runtime facilitates the creation of robust, extensible, and maintainable code in Java, fostering a modular and scalable approach to software development. The combination of inheritance and polymorphism provides a powerful paradigm for building flexible, reusable, and efficient object-oriented systems.
+3. What are the differences between Polymorphism and Inheritance in Java?
+Polymorphism and inheritance are two key concepts in Java, but they serve different purposes and have distinct characteristics:
+- Purpose:
+	+) Polymorphism: Primarily concerned with providing a single interface for entities of different types. It allows objects to be treated as instances of their superclass, enabling flexibility in method invocation.
+	+) Inheritance: Focuses on creating a hierarchy of classes, where subclasses can inherit attributes and behaviors from their superclasses. 
+- Implementation:
+	+) Polymorphism: Achieved through method overriding, where a subclass provides a specific implementation for a method already defined in its superclass. It allows a reference variable of a superclass type to refer to objects of its subclasses.
+	+) Inheritance: Involves creating a new class (subclass) based on an existing class (superclass). The subclass inherits the fields and methods of the superclass and can override or extend them.
+- Flexibility:
+	+) Polymorphism: Provides flexibility in using objects of different types through a common interface. It allows for dynamic binding at runtime.
+	+) Inheritance: Offers flexibility by allowing the creation of specialized classes that inherit and extend the functionality of more general classes.
+- Relationship:
+	+) Polymorphism: Enables a single interface for multiple types, often achieved through interfaces, abstract classes, or method overriding.
+	+) Inheritance: Establishes a hierarchy of classes, representing an "is-a" relationship between subclasses and superclasses.
+- Code Reusability:
+	+) Polymorphism: Enhances code reusability by allowing a single method name to be used for different implementations in subclasses.
+	+) Inheritance: Promotes code reuse by allowing subclasses to inherit attributes and behaviors from their superclasses.
+In summary, polymorphism is about providing a common interface for different types, achieved through method overriding, while inheritance is about creating a hierarchical structure of classes to promote code reuse and establish relationships between classes. Both concepts complement each other and are fundamental in object-oriented programming.
