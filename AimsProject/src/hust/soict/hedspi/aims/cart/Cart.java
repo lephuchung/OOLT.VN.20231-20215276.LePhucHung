@@ -50,4 +50,23 @@ public class Cart {
     public ArrayList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
+
+    public void searchId(int id) {
+        for(Media item: itemsOrdered) {
+            if(item.getId() == id) {
+                System.out.println(item);
+                return ;
+            }
+        }
+        System.out.println("No media is matched!");
+    }
+    public void searchTitle(String title) {
+        for(Media item: itemsOrdered) {
+            if(item.getTitle().equals(title)) {
+                System.out.println(item);
+                return ;
+            }
+        }
+        System.out.println("No media is matched!");
+    }
 }
