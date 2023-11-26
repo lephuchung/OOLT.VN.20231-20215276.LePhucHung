@@ -174,6 +174,7 @@ public class Aims{
         System.out.println("Media does not exist!");
         storeMenu();
     }
+    
     public static void mediaDetailsMenu(Media media) {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
