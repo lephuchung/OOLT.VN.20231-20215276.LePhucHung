@@ -77,11 +77,37 @@ public class StoreManagerScreen extends JFrame {
         cp.add(createNorth(), BorderLayout.NORTH);
         cp.add(createCenter(), BorderLayout.CENTER);
 
-
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Store");
         setSize(1024, 768);
         setLocationRelativeTo(null);
         setVisible(true);
     }
-        
+
+    public static void main(String[] args) {
+
+        Store store = new Store();
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Harry Potter 1", "Roger Aliers", "Animation", 87, (float) 3.0);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Harry Potter 2", "Roger Aliers", "Animation", 87, (float) 3.5);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Harry Potter 3", "Roger Aliers", "Animation", 87, (float) 5);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Harry Potter 4", "Roger Aliers", "Animation", 87, (float) 4.5);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Fetch the Bolt Cutters", "Roger Aliers", "Animation", 87, (float) 10.39);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Future Nostalgia", "Roger Aliers", "Animation", 87, (float) 9.6);
+        Book book1 = new Book("Mockingjay", "Funny", (float) 5.1);
+        Book book2 = new Book("Catching Fire", "Funny", (float) 4.9);
+        Book book3 = new Book("The Hunger Games", "Funny", (float) 5.5);
+
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.addMedia(dvd4);
+        store.addMedia(dvd5);
+        store.addMedia(dvd6);
+        store.addMedia(book3);
+        store.addMedia(book2);
+        store.addMedia(book1);
+
+        StoreManagerScreen scr = new StoreManagerScreen(store);
+    }
+
 }
