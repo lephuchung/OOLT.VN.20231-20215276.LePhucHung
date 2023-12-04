@@ -1,6 +1,8 @@
 package AimsProject.src.hust.soict.hedspi.aims.screen.manager;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import AimsProject.src.hust.soict.hedspi.aims.store.Store;
 import AimsProject.src.hust.soict.hedspi.aims.cart.Cart;
@@ -23,15 +25,54 @@ public class StoreManagerScreen extends JFrame {
     }
 
     JMenuBar createMenuBar() {
+        Store store = this.store;
+        Cart cart = this.cart;
+
         JMenu menu = new JMenu("Options");
 
-        menu.add(new JMenuItem("View Store"));
-
         JMenu smUpdateStore = new JMenu("Update Store");
-        smUpdateStore.add(new JMenuItem("Add Book"));
-        smUpdateStore.add(new JMenuItem("Add CD"));
-        smUpdateStore.add(new JMenuItem("Add DVD"));
+        JMenuItem addBookScreen = new JMenuItem("Add Book");
+        addBookScreen.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddBookToStoreScreen(store);
+                dispose();
+            }
+        });
+        smUpdateStore.add(addBookScreen);
+        JMenuItem addCDScreen = new JMenuItem("Add CD");
+        addCDScreen.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddCompactDiscToStoreScreen(store);
+                dispose();
+            }
+        });
+        smUpdateStore.add(addCDScreen);
+        JMenuItem addDVDScreen = new JMenuItem("Add DVD");
+        addDVDScreen.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddDigitalVideoDiscToStoreScreen(store);
+                dispose();
+            }
+        });
+        smUpdateStore.add(addDVDScreen);
+
         menu.add(smUpdateStore);
+        JMenuItem viewStoreScreen = new JMenuItem("View Store");
+        viewStoreScreen.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new StoreManagerScreen(store);
+                dispose();
+            }
+        });
+        menu.add(viewStoreScreen);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -39,6 +80,7 @@ public class StoreManagerScreen extends JFrame {
 
         return menuBar;
     }
+
 
     JPanel createHeader() {
         JPanel header = new JPanel();
