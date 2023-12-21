@@ -142,6 +142,11 @@ public class CartController {
                 (ObservableValue<? extends Media> observable, Media oldValue, Media newValue) -> {
                     updateButtonBar(newValue);
                 });
+        tfFilter.textProperty()
+                .addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+                    showFilteredMedia(newValue);
+                });
+        setCost();
     }
 
     void showFilteredMedia(String str) {
@@ -183,7 +188,19 @@ public class CartController {
 
     @FXML
     void placeOrderClicked(ActionEvent event) {
-
+        cart = new Cart();
+        tblMedia.setItems(cart.getItemsOrdered());
+        setCost();
+        JDialog dialog = new JDialog();
+        dialog.setTitle("S.O.S");
+        JPanel panel = new JPanel();
+        FlowLayout boxlayout = new FlowLayout(FlowLayout.CENTER, 75, 75);
+        panel.setLayout(boxlayout);
+        panel.add(new JLabel("Place order successfully"));
+        dialog.add(panel);
+        dialog.setSize(200, 200);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
     @FXML
     void filterByIDChosen(ActionEvent event) {
