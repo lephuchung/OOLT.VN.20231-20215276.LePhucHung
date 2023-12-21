@@ -1,5 +1,8 @@
 package AimsProject.src.hust.soict.hedspi.aims;
 
+import AimsProject.src.hust.soict.hedspi.aims.exception.DataConstraintsException;
+import AimsProject.src.hust.soict.hedspi.aims.exception.LimitException;
+import AimsProject.src.hust.soict.hedspi.aims.exception.PlayerException;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
 import AimsProject.src.hust.soict.hedspi.aims.media.CompactDisc;
 import AimsProject.src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
@@ -16,7 +19,7 @@ public class Aims{
     private static Store store = new Store();
     private static Scanner input = new Scanner(System.in);
 
-    public static void showMenu() {
+    public static void showMenu() throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("AIMS: ");
         System.out.println("--------------------------------");
         System.out.println("1. View store");
@@ -44,7 +47,7 @@ public class Aims{
             showMenu();
         }
     }
-    public static void updateStore() {
+    public static void updateStore() throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Add media");
@@ -69,7 +72,7 @@ public class Aims{
             showMenu();
         }
     }
-    public static void updateStore1() {
+    public static void updateStore1() throws DataConstraintsException, PlayerException, LimitException {
         System.out.print("Enter title of the media: ");
         String title = input.nextLine();
         System.out.print("Enter category of the media: ");
@@ -112,7 +115,7 @@ public class Aims{
             showMenu();
         }
     }
-    public static void updateStore2() {
+    public static void updateStore2() throws DataConstraintsException, PlayerException, LimitException {
         System.out.print("Enter the title of the media:");
         String title = input.nextLine();
         for(Media media: store.getItemsInStore()) {
@@ -126,7 +129,7 @@ public class Aims{
         updateStore();
     }
 
-    public static void storeMenu() {
+    public static void storeMenu() throws DataConstraintsException, PlayerException, LimitException {
         store.print();
         System.out.println("Options: ");
         System.out.println("--------------------------------");
@@ -161,7 +164,7 @@ public class Aims{
         }
     }
 
-    public static void storeMenu1() {
+    public static void storeMenu1() throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("Enter the title of the media");
         String title = input.nextLine();
         for(Media media: store.getItemsInStore()) {
@@ -175,7 +178,7 @@ public class Aims{
         storeMenu();
     }
     
-    public static void mediaDetailsMenu(Media media) {
+    public static void mediaDetailsMenu(Media media) throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Add to cart");
@@ -228,7 +231,7 @@ public class Aims{
         }
     }
 
-    public static void storeMenu2() {
+    public static void storeMenu2() throws PlayerException, DataConstraintsException, LimitException {
         System.out.print("Enter the title of the media: ");
         String title = input.nextLine();
         for(Media media: store.getItemsInStore()) {
@@ -241,7 +244,7 @@ public class Aims{
         System.out.println("Media does not exist!");
         storeMenu();
     }
-    public static void storeMenu3() {
+    public static void storeMenu3() throws PlayerException, DataConstraintsException, LimitException {
         System.out.print("Enter the title of the media: ");
         String title = input.nextLine();
         for(Media media: store.getItemsInStore()) {
@@ -265,7 +268,7 @@ public class Aims{
         storeMenu();
     }
 
-    public static void cartMenu() {
+    public static void cartMenu() throws DataConstraintsException, PlayerException, LimitException {
         cart.print();
         System.out.println("Options: ");
         System.out.println("--------------------------------");
@@ -305,7 +308,7 @@ public class Aims{
         }
     }
 
-    public static void cartMenu1() {
+    public static void cartMenu1() throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Filter by id");
@@ -336,7 +339,7 @@ public class Aims{
             cartMenu();
         }
     }
-    public static void cartMenu2() {
+    public static void cartMenu2() throws DataConstraintsException, PlayerException, LimitException {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
         System.out.println("1. Sort by title");
@@ -364,7 +367,7 @@ public class Aims{
             cartMenu();
         }
     }
-    public static void cartMenu3() {
+    public static void cartMenu3() throws DataConstraintsException, PlayerException, LimitException {
         System.out.print("Enter the title of the media to remove: ");
         String title = input.nextLine();
         for(Media media: cart.getItemsOrdered()) {
@@ -377,7 +380,7 @@ public class Aims{
         System.out.println("Media does not exist!");
         cartMenu();
     }
-    public static void cartMenu4() {
+    public static void cartMenu4() throws PlayerException, DataConstraintsException, LimitException {
         System.out.print("Enter the title of the media to play: ");
         String title = input.nextLine();
         for (Media media: store.getItemsInStore()) {
@@ -402,7 +405,7 @@ public class Aims{
         System.out.println("Media does not exist!");
         cartMenu();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DataConstraintsException, PlayerException, LimitException {
 
         showMenu();
     }

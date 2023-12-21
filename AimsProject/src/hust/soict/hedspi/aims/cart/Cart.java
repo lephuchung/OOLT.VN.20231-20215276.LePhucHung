@@ -2,27 +2,35 @@ package AimsProject.src.hust.soict.hedspi.aims.cart;
 
 import java.util.ArrayList;
 
+import AimsProject.src.hust.soict.hedspi.aims.exception.LimitException;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Cart {
+    private static final int MAX_NUMBER_ORDERED = 20 ;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     private ObservableList<Media> viewFilter;
-    public void addMedia(Media d) {
-        itemsOrdered.add(d);
-        System.out.println("The media has been added!");
-    }
-    public void addMedia(Media [] dList) {
-        for (Media disc: dList) {
-            addMedia(disc);
+    public void addMedia(Media d) throws LimitException {
+        if (itemsOrdered.size() < MAX_NUMBER_ORDERED) {
+            itemsOrdered.add(d);
+            System.out.println("The media has been added!");
+        }
+        else {
+            throw new LimitException("ERROR: the number of medias exceeds cart's limit");
         }
     }
-    public void addMedia(Media d1,Media d2) {
+    public void addMedia(Media [] dList) throws LimitException{
+//		for(int i=0; i< dvdList.length; i++) {
+//			addDigitalVideoDisc(dvdList[i]);
+//		}
+        for (Media disc: dList) {
+            addMedia(disc);}
+    }
+    public void addMedia(Media d1,Media d2) throws LimitException{
         addMedia(d1);
         addMedia(d2);
     }
-
     public void removeMedia (Media d) {
         try {
             itemsOrdered.remove(d);
