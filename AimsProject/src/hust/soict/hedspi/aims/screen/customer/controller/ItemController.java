@@ -1,5 +1,6 @@
 package AimsProject.src.hust.soict.hedspi.aims.screen.customer.controller;
 
+import AimsProject.src.hust.soict.hedspi.aims.cart.Cart;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
 import AimsProject.src.hust.soict.hedspi.aims.media.Playable;
 import javafx.event.ActionEvent;
@@ -11,7 +12,13 @@ import javafx.scene.layout.HBox;
 
 public class ItemController{
 
+    private Cart cart;
     private Media media;
+
+    public ItemController(Cart cart) {
+        this.cart = cart;
+    }
+
     public void setData(Media media){
         this.media = media;
         lblTitle.setText(media.getTitle());
