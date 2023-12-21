@@ -67,7 +67,7 @@ public class CompactDisc extends Disc implements Playable{
 //	public void setTrack(ArrayList<Track> track) {
 //		this.track = track;
 //	}
-    public void play() {
+    public String[] play() {
         System.out.println("CD contains " + this.tracks.size() + " tracks!");
         System.out.println("Tracks:");
         int i=0;
@@ -77,6 +77,7 @@ public class CompactDisc extends Disc implements Playable{
         for(Track track: tracks) {
             track.play();
         }
+        return new String[0];
     }
 
     @Override

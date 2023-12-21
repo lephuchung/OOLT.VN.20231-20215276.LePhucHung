@@ -81,12 +81,31 @@ public class CartController {
 
     @FXML
     void btnRemovePressed(ActionEvent event) {
-
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        cart.removeMedia(media);
+        setCost();
     }
 
     @FXML
     void btnPlayPressed(ActionEvent event) {
-
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Play");
+        JPanel panel = new JPanel();
+        GridBagLayout layout = new GridBagLayout();
+        panel.setLayout(layout);
+        GridBagConstraints gbc = new GridBagConstraints();
+        String[] playList = ((Playable) media).play();
+        for (int i = 0; i < playList.length; i++) {
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            gbc.gridx = 0;
+            gbc.gridy = i;
+            panel.add(new JLabel(playList[i]), gbc);
+        }
+        dialog.add(panel);
+        dialog.setSize(300, 300);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
 
     @FXML
@@ -107,11 +126,22 @@ public class CartController {
 
     @FXML
     public void initialize() {
-
-    }
-
-    void showFilteredMedia(String str) {
-
+        if (cart == null) {
+            cart = new Cart();
+        }
+        colMediaId.setCellValueFactory(new PropertyValueFactory<Media, Integer>("id"));
+        colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
+        colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
+        colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
+        if (cart.getItemsOrdered() != null) {
+            tblMedia.setItems(cart.getItemsOrdered());
+        }
+        btnPlay.setVisible(false);
+        btnRemove.setVisible(false);
+        tblMedia.getSelectionModel().selectedItemProperty().addListener(
+                (ObservableValue<? extends Media> observable, Media oldValue, Media newValue) -> {
+                    updateButtonBar(newValue);
+                });
     }
 
     void updateButtonBar(Media media) {

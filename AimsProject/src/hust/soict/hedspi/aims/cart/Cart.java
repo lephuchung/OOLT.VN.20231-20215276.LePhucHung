@@ -2,9 +2,8 @@ package AimsProject.src.hust.soict.hedspi.aims.cart;
 
 import java.util.ArrayList;
 
-import AimsProject.src.hust.soict.hedspi.aims.media.CompactDisc;
-import AimsProject.src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
+import javafx.collections.ObservableList;
 
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -47,7 +46,7 @@ public class Cart {
         System.out.println("Total cost: " + totalCost() + "$");
         System.out.println("**************************************************");
     }
-    public ArrayList<Media> getItemsOrdered() {
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
 
