@@ -2,6 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -13,8 +16,26 @@
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="654.0">
          <left>
             <VBox maxHeight="1.7976931348623157E308" spacing="8.0" BorderPane.alignment="CENTER">
+
                <children>
-                  <Button fx:id="clearButtonPressed" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clear">
+                  <TitledPane animated="false" prefHeight="78.0" prefWidth="200.0" text="Tool">
+                     <content>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="79.0" prefWidth="86.0">
+                           <children>
+                              <RadioButton layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#toolButtonPressed" text="Pen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="-7.0">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tools" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutY="37.0" mnemonicParsing="false" onAction="#toolButtonPressed" prefHeight="15.0" prefWidth="88.0" text="Eraser" toggleGroup="$tools" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="15.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TitledPane>
+                  <Button fx:id="clearButtonPressed" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear">
                      <font>
                         <Font size="13.0" />
                      </font>
