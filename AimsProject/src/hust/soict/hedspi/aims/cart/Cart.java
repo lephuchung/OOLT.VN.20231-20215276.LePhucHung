@@ -3,10 +3,12 @@ package AimsProject.src.hust.soict.hedspi.aims.cart;
 import java.util.ArrayList;
 
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> viewFilter;
     public void addMedia(Media d) {
         itemsOrdered.add(d);
         System.out.println("The media has been added!");
@@ -47,7 +49,7 @@ public class Cart {
         System.out.println("**************************************************");
     }
     public ObservableList<Media> getItemsOrdered() {
-        return itemsOrdered;
+        return (ObservableList<Media>) itemsOrdered;
     }
 
     public void searchId(int id) {
@@ -67,5 +69,29 @@ public class Cart {
             }
         }
         System.out.println("No media is matched!");
+    }
+
+    public ObservableList<Media> filterId(String str) {
+        viewFilter = FXCollections.observableArrayList();
+        for (int i = 0; i < this.itemsOrdered.size(); i++) {
+            if (str.length() > String.valueOf(this.itemsOrdered.get(i).getId()).length()) {
+                continue;
+            } else if (String.valueOf(this.itemsOrdered.get(i).getId()).substring(0, str.length()).equals(str)) {
+                viewFilter.add(this.itemsOrdered.get(i));
+            }
+        }
+        return viewFilter;
+    }
+
+    public ObservableList<Media> filterTitle(String str) {
+        viewFilter = FXCollections.observableArrayList();
+        for (int i = 0; i < this.itemsOrdered.size(); i++) {
+            if (str.length() > String.valueOf(this.itemsOrdered.get(i).getTitle()).length()) {
+                continue;
+            } else if (this.itemsOrdered.get(i).getTitle().substring(0, str.length()).equals(str)) {
+                viewFilter.add(this.itemsOrdered.get(i));
+            }
+        }
+        return viewFilter;
     }
 }

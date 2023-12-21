@@ -111,7 +111,7 @@ public class CartController {
     @FXML
     void btnViewStorePressed(ActionEvent event) {
         try {
-            final String STORE_FXML_FILE_PATH = "/hust/soict/dsai/aims/screen/customer/view/Store.fxml";
+            final String STORE_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Store.fxml";
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STORE_FXML_FILE_PATH));
             fxmlLoader.setController(new ViewStoreController(store, cart));
             Parent root = fxmlLoader.load();
@@ -142,6 +142,22 @@ public class CartController {
                 (ObservableValue<? extends Media> observable, Media oldValue, Media newValue) -> {
                     updateButtonBar(newValue);
                 });
+    }
+
+    void showFilteredMedia(String str) {
+        if (str.strip().equals("")) {
+            tblMedia.setItems(cart.getItemsOrdered());
+        } else {
+            ObservableList<Media> viewFilter;
+            if (radioBtnFilterId.isSelected()) {
+                viewFilter = cart.filterId(str);
+            } else {
+                viewFilter = cart.filterTitle(str);
+            }
+            if (viewFilter != null) {
+                tblMedia.setItems(viewFilter);
+            }
+        }
     }
 
     void updateButtonBar(Media media) {
