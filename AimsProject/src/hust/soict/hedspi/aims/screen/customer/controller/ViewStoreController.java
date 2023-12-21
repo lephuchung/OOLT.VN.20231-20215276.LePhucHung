@@ -16,14 +16,14 @@ public class ViewStoreController {
     }
 
     public void initialize(){
-        final String ITEM_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Item.fxml";
+        final String ITEM_FXML_FILE_PATH = "/AimsProject/src/hust/soict/hedspi/aims/screen/customer/view/Item.fxml";
         int column = 0;
         int row = 1;
         for (int i=0; i<store.getItemsInStore().size(); i++){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(ITEM_FXML_FILE_PATH));
-                ItemController itemController = new ItemController(cart);
+                ItemController itemController = new ItemController();
                 fxmlLoader.setController(itemController);
                 AnchorPane anchorPane = new AnchorPane();
                 anchorPane = fxmlLoader.load();
