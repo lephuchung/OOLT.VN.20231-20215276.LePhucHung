@@ -1,6 +1,7 @@
 package AimsProject.src.hust.soict.hedspi.aims.screen.customer.controller;
 
 import AimsProject.src.hust.soict.hedspi.aims.cart.Cart;
+import AimsProject.src.hust.soict.hedspi.aims.exception.PlayerException;
 import AimsProject.src.hust.soict.hedspi.aims.media.Media;
 import AimsProject.src.hust.soict.hedspi.aims.media.Playable;
 
@@ -87,7 +88,7 @@ public class CartController {
     }
 
     @FXML
-    void btnPlayPressed(ActionEvent event) {
+    void btnPlayPressed(ActionEvent event) throws PlayerException {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         JDialog dialog = new JDialog();
         dialog.setTitle("Play");
