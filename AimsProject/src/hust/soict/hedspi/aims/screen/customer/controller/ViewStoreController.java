@@ -4,6 +4,7 @@ import AimsProject.src.hust.soict.hedspi.aims.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -34,6 +35,8 @@ public class ViewStoreController {
                     row++;
                 }
 
+                gridPane.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(20, 10, 10, 10));
             }
             catch (IOException e){
                 e.printStackTrace();
