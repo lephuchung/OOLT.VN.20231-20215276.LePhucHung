@@ -58,7 +58,8 @@ public class Media {
 
         if(object instanceof Media) {
             Media media = (Media) object;
-            return media.getTitle().equals(this.getTitle());
+
+            return (media.getTitle().equals(this.getTitle())&&(media.getCost() ==  this.getCost()));
         }
         return false;
     }
