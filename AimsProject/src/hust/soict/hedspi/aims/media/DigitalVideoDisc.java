@@ -1,5 +1,6 @@
 package AimsProject.src.hust.soict.hedspi.aims.media;
 
+import AimsProject.src.hust.soict.hedspi.aims.exception.DataConstraintsException;
 import AimsProject.src.hust.soict.hedspi.aims.exception.PlayerException;
 
 public class DigitalVideoDisc extends Disc implements Playable {
@@ -16,13 +17,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
         this.id = nbDigitalVideoDiscs;
     }
 
-    public DigitalVideoDisc(String title, String category, float cost) {
-        super();
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-        nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+    public DigitalVideoDisc(String title, String category, float cost) throws DataConstraintsException {
+        this(title);
+        this.setCategory(category);
+        this.setCost(cost);
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
