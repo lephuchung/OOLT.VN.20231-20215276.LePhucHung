@@ -105,7 +105,7 @@
                 </HBox>
                 <Button mnemonicParsing="false" onAction="#placeOrderClicked" style="-fx-background-color: #004cff;" text="Place Order" textFill="WHITE">
                     <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
             </children>
